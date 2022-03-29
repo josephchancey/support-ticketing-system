@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 
 function Register() {
@@ -30,7 +31,7 @@ function Register() {
       </section>
 
       <section className="form">
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="text"
@@ -74,6 +75,11 @@ function Register() {
               onChange={onChange}
               placeholder="Confirm Password"
             />
+          </div>
+          <div className="form-group">
+            <button className="btn btn-block">
+              Submit
+            </button>
           </div>
         </form>
       </section>
