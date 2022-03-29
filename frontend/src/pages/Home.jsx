@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <section className="heading">
-        <h1>How can we not help?</h1>
+        <h1>How can we help?</h1>
         <p>Please choose from the list of options</p>
       </section>
       <Link to="/new-ticket" className="btn btn-reverse btn-block">
