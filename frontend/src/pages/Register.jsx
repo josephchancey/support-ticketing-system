@@ -3,8 +3,6 @@ import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 
 function Register() {
-
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +17,16 @@ function Register() {
       ...prevState,
       [e.target.id]: e.target.value,
     }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== passwordConf) {
+      toast.error("Passwords do not match", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
   };
 
   return (
@@ -41,6 +49,7 @@ function Register() {
               value={name}
               onChange={onChange}
               placeholder="Name"
+              required
             />
           </div>
           <div className="form-group">
@@ -52,6 +61,7 @@ function Register() {
               value={email}
               onChange={onChange}
               placeholder="Email"
+              required
             />
           </div>
           <div className="form-group">
@@ -63,6 +73,7 @@ function Register() {
               value={password}
               onChange={onChange}
               placeholder="Password"
+              required
             />
           </div>
           <div className="form-group">
@@ -74,12 +85,11 @@ function Register() {
               value={passwordConf}
               onChange={onChange}
               placeholder="Confirm Password"
+              required
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-block">
-              Submit
-            </button>
+            <button className="btn btn-block">Submit</button>
           </div>
         </form>
       </section>
